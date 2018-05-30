@@ -1,0 +1,20 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Back
+ * - sets up the back button
+ * @RobertHeiermann
+ * Version 5.29
+ */
+
+public class Info extends GameInstructions
+{
+    /**
+     * Act - do whatever the Info wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        
+    } // end method act 
+} // end class GameInstructions
