@@ -1,0 +1,10 @@
+My project will be titled "Streets of Chaos." In this game, the user will maneuver a stick figure character 
+across a 2-dimensional gaming screen. He/she will be tasked with avoiding objects. There will be cars, planes, 
+and soccer balls that will all be randomly moving across the screen. The user will jump and move in order to 
+avoid being hit by one of these objects. The goal is to survive for 2 minutes in the game. Players will be 
+given three lives. Once they lose all three of their lives, they lose the game. To win, one must have at least 
+one life when time expires. There will be a city like background on the screen. Additionally, platforms will be 
+placed enabling the user to more easily avoid being hit by one of the objects.
+
+How To Play: Use the right and left arrow keys to move the user stick figure to the right and left, respectively. 
+To jump, press the up arrow key. The object of the game is to avoid being hit by the cars, balls, and planes.
