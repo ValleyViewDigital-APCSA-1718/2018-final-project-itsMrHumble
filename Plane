@@ -1,0 +1,40 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Plane
+ * - sets up the plane object
+ * @RobertHeiermann
+ * Version 5.29
+ */
+
+public class Plane extends Objects
+{
+    /**
+     * Act - do whatever the Plane wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        move();
+    } // end method act
+    /**
+     * Enables the planes to move.
+     */
+    public void move()
+    {
+        move(2);
+        // makes the planes move in circles
+        if (Greenfoot.getRandomNumber(100) < 10)
+        {
+            turn(Greenfoot.getRandomNumber(25));
+        } // end if
+        if (getX() <= 5 || getY() >= getWorld().getWidth() - 5)
+        {
+            turn(Greenfoot.getRandomNumber(25));
+        } // end if
+        if (getY() <= 5 || getY() >= getWorld().getHeight() - 5)
+        {
+            turn(Greenfoot.getRandomNumber(25));
+        } // end if
+    } // end method move
+} // end class Plane
