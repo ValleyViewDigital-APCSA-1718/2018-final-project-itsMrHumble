@@ -1,0 +1,23 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Play
+ * - enables the user to play the game
+ * @RobertHeiermann 
+ * Version 5.29
+ */
+public class Play extends Menu
+{
+    Game l1 = new Game();
+    /**
+     * Act - do whatever the play wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        if (Greenfoot.mouseClicked(this))
+        {
+            Greenfoot.setWorld(l1);
+        } // end if
+    } // end method act
+} // end class Play
