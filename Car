@@ -1,0 +1,32 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Car
+ * - sets up the car object
+ * @RobertHeiermann
+ * Version 5.29
+ */
+
+public class Car extends Objects
+{
+    /**
+     * Act - do whatever the Plane wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        move();
+    } // end method act  
+    /**
+     * Enables the cars to move.
+     */
+    public void move()
+    {
+        move(-5);
+        // enables cars to flow at a continuous rate
+        if (isAtEdge())
+        {
+            setLocation(1280, 780);
+        } // end if
+    } // end method move
+} // end class Car
