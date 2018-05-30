@@ -1,0 +1,36 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Ball
+ * - sets up the ball object
+ * @RobertHeiermann
+ * Version 5.29
+ */
+
+public class Ball extends Objects
+{
+    /**
+     * Act - do whatever the Ball wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        move();
+    } // end method move
+    /**
+     * Enables the balls to move.
+     */public void move()
+    {
+        move(15);
+        // turns ball if at edge
+        if (isAtEdge())
+        {
+            turn(Greenfoot.getRandomNumber(45));
+        } // end if
+        // enables the balls to bounce off of each other
+        if (isTouching(Ball.class))
+        {
+            turn(Greenfoot.getRandomNumber(45));
+        } // end if
+    } // end method move
+} // end class Ball
