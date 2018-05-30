@@ -1,0 +1,43 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Time
+ * - sets up the time functionality of the game
+ * @RobertHeiermann 
+ * Version 5.29
+ */
+
+public class Time extends Display
+{
+    int time = 12000;
+    boolean gameStarted = false; 
+    /**
+     * Act - do whatever the time wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        setImage(new GreenfootImage("Time: " + time, 35, Color.WHITE, Color.BLACK));
+        decrease();
+        done();
+    } // end method act
+    public void decrease()
+    {
+        if (time >= 0)
+        {
+            if (time <= 12000) 
+            {
+                gameStarted = true;
+                time = time - 1;
+            } // end inner if
+        } // end if
+    }
+    public void done()
+    {
+        if (time==0)
+        {
+            Greenfoot.setWorld(new YouWin());
+            gameStarted = false;
+        } // end if
+    } // end done
+} // end class Time
