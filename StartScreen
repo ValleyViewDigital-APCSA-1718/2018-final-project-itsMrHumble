@@ -1,0 +1,191 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * StartScreen
+ * - sets up the start screen for "Streets of Chaos"
+ * @RobertHeiermann
+ * Version 5.29
+ */
+
+public class StartScreen extends World
+{
+    public StartScreen()
+    {    
+        super(1280, 820, 1);
+        Prepare();
+    } // end constructor
+    private void Prepare()
+    {
+        // creates & places the "ground" platforms
+        Platform p1 = new Platform();
+        addObject(p1, 25, 815);
+        Platform p2 = new Platform();
+        addObject(p2, 75, 815);
+        Platform p3 = new Platform();
+        addObject(p3, 125, 815);
+        Platform p4 = new Platform();
+        addObject(p4, 175, 815);
+        Platform p5 = new Platform();
+        addObject(p5, 225, 815);
+        Platform p6 = new Platform();
+        addObject(p6, 275, 815);
+        Platform p7 = new Platform();
+        addObject(p7, 325, 815);
+        Platform p8 = new Platform();
+        addObject(p8, 375, 815);
+        Platform p9 = new Platform();
+        addObject(p9, 425, 815);
+        Platform p10 = new Platform();
+        addObject(p10, 475, 815);
+        Platform p11 = new Platform();
+        addObject(p11, 525, 815);
+        Platform p12 = new Platform();
+        addObject(p12, 575, 815);
+        Platform p13 = new Platform();
+        addObject(p13, 625, 815);
+        Platform p14 = new Platform();
+        addObject(p14, 675, 815);
+        Platform p15 = new Platform();
+        addObject(p15, 725, 815);
+        Platform p16 = new Platform();
+        addObject(p16, 775, 815);
+        Platform p17 = new Platform();
+        addObject(p17, 825, 815);
+        Platform p18 = new Platform();
+        addObject(p18, 875, 815);
+        Platform p19 = new Platform();
+        addObject(p19, 925, 815);
+        Platform p20 = new Platform();
+        addObject(p20, 975, 815);
+        Platform p21 = new Platform();
+        addObject(p21, 1025, 815);
+        Platform p22 = new Platform();
+        addObject(p22, 1075, 815);
+        Platform p23 = new Platform();
+        addObject(p23, 1125, 815);
+        Platform p24 = new Platform();
+        addObject(p24, 1175, 815);
+        Platform p25 = new Platform();
+        addObject(p25, 1225, 815);
+        Platform p26 = new Platform();
+        addObject(p26, 1275, 815);
+        
+        // creates & places the "air" platforms
+        Platform p27 = new Platform();
+        addObject(p27, 50, 725);
+        Platform p28 = new Platform();
+        addObject(p28, 100, 725);
+        Platform p29 = new Platform();
+        addObject(p29, 415, 725);
+        Platform p30 = new Platform();
+        addObject(p30, 465, 725);
+        Platform p31 = new Platform();
+        addObject(p31, 815, 725);
+        Platform p32 = new Platform();
+        addObject(p32, 865, 725);
+        Platform p33 = new Platform();
+        addObject(p33, 1180, 725);
+        Platform p34 = new Platform();
+        addObject(p34, 1230, 725);
+        Platform p35 = new Platform();
+        addObject(p35, 235, 625);
+        Platform p36 = new Platform();
+        addObject(p36, 285, 625);
+        Platform p37 = new Platform();
+        addObject(p37, 615, 625);
+        Platform p38 = new Platform();
+        addObject(p38, 665, 625);
+        Platform p39 = new Platform();
+        addObject(p39, 995, 625);
+        Platform p40 = new Platform();
+        addObject(p40, 1045, 625);
+        Platform p41 = new Platform();
+        addObject(p41, 50, 525);
+        Platform p42 = new Platform();
+        addObject(p42, 100, 525);
+        Platform p43 = new Platform();
+        addObject(p43, 415, 525);
+        Platform p44 = new Platform();
+        addObject(p44, 465, 525);
+        Platform p45 = new Platform();
+        addObject(p45, 815, 525);
+        Platform p46 = new Platform();
+        addObject(p46, 865, 525);  
+        Platform p47 = new Platform();
+        addObject(p47, 1180, 525);
+        Platform p48 = new Platform();
+        addObject(p48, 1230, 525);
+        Platform p49 = new Platform();
+        addObject(p49, 235, 425);
+        Platform p50 = new Platform();
+        addObject(p50, 285, 425);
+        Platform p51 = new Platform();
+        addObject(p51, 615, 425);
+        Platform p52 = new Platform();
+        addObject(p52, 665, 425);
+        Platform p53 = new Platform();
+        addObject(p53, 995, 425);
+        Platform p54 = new Platform();
+        addObject(p54, 1045, 425);
+        Platform p55 = new Platform();
+        addObject(p55, 50, 325);
+        Platform p56 = new Platform();
+        addObject(p56, 100, 325);
+        Platform p57 = new Platform();
+        addObject(p57, 415, 325);
+        Platform p58 = new Platform();
+        addObject(p58, 465, 325);
+        Platform p59 = new Platform();
+        addObject(p59, 815, 325);
+        Platform p60 = new Platform();
+        addObject(p60, 865, 325);
+        Platform p61 = new Platform();
+        addObject(p61, 1180, 325);
+        Platform p62 = new Platform();
+        addObject(p62, 1230, 325);
+        
+        // creates & places the plane objects
+        Plane plane1 = new Plane();
+        addObject(plane1, 50, 150);
+        Plane plane2 = new Plane();
+        addObject(plane2, 150, 150);
+        Plane plane3 = new Plane();
+        addObject(plane3, 250, 150);
+        Plane plane4 = new Plane();
+        addObject(plane4, 1030, 150);
+        Plane plane5 = new Plane();
+        addObject(plane5, 1130, 150);
+        Plane plane6 = new Plane();
+        addObject(plane6, 1230, 150);
+        
+        // creates & places the car objects
+        Car car1 = new Car();
+        addObject(car1, 560, 780);
+        Car car2 = new Car();
+        addObject(car2, 1200, 780);
+        
+        // creates & places the ball objects
+        Ball ball1 = new Ball();
+        addObject(ball1, 640, 375);
+        Ball ball2 = new Ball();
+        addObject(ball2, 640, 475);
+        
+        // places the game's logo on the screen
+        GameLogo logo = new GameLogo();
+        addObject(logo, 640, 95);
+        GameText text = new GameText();
+        addObject(text, 640, 37);
+        
+        // places the play button on the screen
+        Play play = new Play();
+        addObject(play, 470, 175);
+        
+        // places the help button on the screen
+        Help help = new Help();
+        addObject(help, 640, 175);
+        
+        // places the quit button on the screen
+        Quit quit = new Quit();
+        addObject(quit, 810, 175);
+    } // end method Prepare
+} // end class StartScreen
