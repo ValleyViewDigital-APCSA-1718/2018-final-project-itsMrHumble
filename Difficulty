@@ -1,0 +1,14 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Difficulty
+ * - sets up the difficulty
+ * @RobertHeiermann 
+ * Version 5.29
+ */
+
+public interface Difficulty
+{
+    public void setDifficulty(int difficulty);
+    public int getDifficulty();
+} // end interface Difficulty
