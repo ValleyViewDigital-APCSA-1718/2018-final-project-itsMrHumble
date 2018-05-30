@@ -1,0 +1,20 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * GameInstructions
+ * - sets up the game's instrusctions
+ * @RobertHeiermann
+ * Version 5.29
+ */
+
+public class GameInstructions extends Actor
+{
+    /**
+     * Act - do whatever the GameInstructions wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        
+    } // end method act
+} // end class GameInstructions
