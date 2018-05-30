@@ -1,0 +1,23 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Quit
+ * - enables the user to quit the game
+ * @RobertHeiermann 
+ * Version 5.29
+ */
+
+public class Quit extends Menu
+{
+    /**
+     * Act - do whatever the quit wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        if (Greenfoot.mouseClicked(this))
+        {
+          System.exit(0);
+        } // end if
+    } // end method act
+} // end class Quit
