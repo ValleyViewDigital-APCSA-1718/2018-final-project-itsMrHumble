@@ -1,0 +1,232 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Player
+ * - creates the user character
+ * @RobertHeiermann
+ * Version 5.29
+ */
+
+public class Player extends Actor
+{
+    private int jumpHeight = 10;
+    private int speed = 5;
+    private double fallSpeed = 0.4;
+    private boolean inTheAir = false;
+    private double deltaX = 0;
+    private double deltaY = 0;
+    private int groundHeight = getImage().getHeight()/2;
+    private int sideWidth = getImage().getWidth()/2;
+    private World myWorld;
+    public int lives = 3;
+    int worldHeight;
+    int worldWidth;
+    public void addedToWorld(World myWorld)
+    {
+        this.myWorld = myWorld;
+        this.worldHeight= myWorld.getHeight();
+        this.worldWidth = myWorld.getWidth();
+    }
+    /**
+     * Act - do whatever the Player wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act()  
+    {
+        if(inTheAir)
+        {
+            fall();
+        } 
+        else 
+        {
+            getInput();
+        }
+        moveLeft();
+        moveRight();
+        move();
+        lives();
+        touchBall();
+        touchCar();
+        touchPlane();
+    } // end method act
+    /**
+     * Move the user character to the right.
+     */
+    public void moveRight()
+    {
+        setLocation (getX() + speed, getY());
+    } // end method moveRight
+    /**
+     * Move the user character to the left.
+     */
+    public void moveLeft()
+    {
+        setLocation (getX() - speed, getY());
+    } // end method moveLeft
+    private void run (String direction)
+    {
+        if (direction=="left")
+        {
+            deltaX = speed * (-1);
+        } // end if
+        else
+        {
+            deltaX = speed;
+        } // end else
+    } // end method run
+    private void stop()
+    { 
+        deltaX = 0;
+    } // end method stop
+    private void jump()
+    {
+        deltaY += jumpHeight;
+        inTheAir = true;
+    } // end method jump
+    private void fall()
+    {
+        deltaY -= fallSpeed;
+    } // end method fall
+    private void move()
+    {
+        double newX = getX() + deltaX;
+        double newY = getY() - deltaY;
+        Actor platformBelow = getOneObjectAtOffset(0, groundHeight + 5, Platform.class);
+        Actor platformAbove = getOneObjectAtOffset(0, -(groundHeight + 5), Platform.class);
+        Actor platformToRight = getOneObjectAtOffset(sideWidth+5, 0, Platform.class);
+        Actor platformToLeft = getOneObjectAtOffset(-(sideWidth+5), 0, Platform.class);
+        if (platformBelow!=null)
+        {
+            if(deltaY < 0)
+            {
+                deltaY = 0;
+                inTheAir = false;
+                GreenfootImage platformImage = platformBelow.getImage();
+                int topOfPlatform = platformBelow.getY() - platformImage.getHeight()/2;
+                newY = topOfPlatform - groundHeight;
+            } // end inner if
+        } // end if
+        else if (getY() >= worldHeight-groundHeight)
+        {
+            if (deltaY < 0)
+            {
+                deltaY = 0;
+                inTheAir = false;
+                newY = worldHeight - groundHeight;
+            } // end inner if
+        } // end else if
+        else 
+        {
+            inTheAir = true;
+        } // end else
+        if (platformAbove!=null)
+        {
+            if (deltaY > 0)
+            {
+                deltaY=0;
+                GreenfootImage platformImage = platformAbove.getImage();
+                int bottomOfPlatform = platformAbove.getY() + platformImage.getHeight()/2;
+                newY = bottomOfPlatform + groundHeight;
+            } // end inner if
+        } // end if
+        if (getX()<=sideWidth)
+        {
+            deltaX = Math.abs(deltaX);
+        } // end if
+        if (getX()>=worldWidth-sideWidth)
+        {
+            deltaX = Math.abs(deltaX) * -1;
+        } // end if
+        if (platformToRight != null)
+        {
+            deltaX = Math.abs(deltaX) * -1;
+        } // end if
+        if (platformToLeft != null)
+        {
+            deltaX = Math.abs(deltaX);
+        } // end if
+        setLocation((int)newX,(int)newY);
+    }
+    // enables the user player to move & jump
+    private void getInput()
+    {
+        if (Greenfoot.isKeyDown("LEFT"))
+        { 
+            if (Greenfoot.isKeyDown("LEFT") && (Greenfoot.isKeyDown("UP")))
+            {
+                run("left");
+                jump();
+            } // end if
+            else
+            {
+                run("left");
+            } // end else
+        } // end if
+        else if (Greenfoot.isKeyDown("RIGHT")) 
+        {
+            if (Greenfoot.isKeyDown("RIGHT") && (Greenfoot.isKeyDown("UP")))
+            {
+                run("right");
+                jump();
+            } // end if
+            else
+            {
+                run("right");
+            } // end else
+        } // end else if
+        else if (Greenfoot.isKeyDown("UP"))
+        {
+            jump();
+        } // end else if
+        else
+        {
+            stop();
+        } // end else
+    } // end getInput
+    public void lives()
+    {
+        if (((isTouching(Ball.class)) || (isTouching(Car.class)) 
+        || (isTouching(Plane.class))) && (lives == 3))
+        {
+            getWorld().removeObjects(getWorld().getObjectsAt(1245, 47, Heart.class));
+        } // end if
+        if (((isTouching(Ball.class)) || (isTouching(Car.class)) 
+        || (isTouching(Plane.class))) && (lives == 2))
+        {
+            getWorld().removeObjects(getWorld().getObjectsAt(1205, 47, Heart.class));
+        } // end if
+        if (((isTouching(Ball.class)) || (isTouching(Car.class)) 
+        || (isTouching(Plane.class))) && (lives == 1))
+        {
+            getWorld().removeObjects(getWorld().getObjectsAt(1165, 47, Heart.class));
+            Greenfoot.setWorld(new YouLose());
+        } // end if
+    } // end method lives
+    private void touchBall()
+    {
+        if (isTouching(Ball.class))
+        {
+            lives = lives-1;
+            setLocation(640, 250);
+            return;
+        } // end if
+    } // end method touchBall
+    private void touchCar()
+    {
+        if (isTouching(Car.class))
+        {
+            lives = lives-1;
+            setLocation(640, 250);
+            return;
+        } // end if
+    } // end method touchCar
+    private void touchPlane()
+    {
+        if (isTouching(Plane.class))
+        {
+            lives = lives-1;
+            setLocation(640, 250);
+            return;
+        } // end if
+    } // end method touchPlane
+} // end class Player
