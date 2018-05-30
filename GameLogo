@@ -1,0 +1,20 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * GameLogo
+ * - sets up the logo of the game
+ * @RobertHeiermann 
+ * Version 5.29
+ */
+
+public class GameLogo extends Menu
+{
+    /**
+     * Act - do whatever the GameLogo wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        
+    } // end method Act
+} // end class GameLogo
